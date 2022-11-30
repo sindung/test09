@@ -15,9 +15,9 @@ to display data, you can use "GET" method
       console.log(response);
     });
 
-output
+if success you will get response with code 200 OK
 
-.. code-block:: json
+.. code-block:: javascript
     {
         "status": true,
         "data": [
