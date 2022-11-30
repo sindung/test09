@@ -116,7 +116,7 @@ to insert data, you can use "POST" method
 ***********
 Update data
 ***********
-to update data, you can use "POST", "PUT" or "PATCH" method with id
+to update data, you can use "POST", "PUT" or "PATCH" method with *id* required
 
 .. code-block:: javascript
 
