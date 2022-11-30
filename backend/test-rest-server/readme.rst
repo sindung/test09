@@ -142,6 +142,7 @@ if succesed, you will get response 204 No Content
 *************
 About project
 *************
+**I did this project for some test purposes**
 
 ###################
 What is CodeIgniter
