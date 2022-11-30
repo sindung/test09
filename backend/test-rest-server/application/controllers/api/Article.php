@@ -13,24 +13,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . 'libraries/REST_Controller.php';
 require APPPATH . 'libraries/Format.php';
 
-class Mahasiswa extends REST_Controller {
+class Article extends REST_Controller {
 
     function __construct() {
         parent::__construct();
     }
 
-    public function index_get() {
-        $id = $this->get('id');
+    public function index_get($id = null, $limit = null, $offset = null) {
+        if ($id === null) {
+            $id = $this->get('id');
+        }
+        if ($limit === null) {
+            $limit = $this->get('limit');
+        }
+        if ($offset === null) {
+            $offset = $this->get('offset');
+        }
         if ($id === NULL) {
-            $mahasiswa = $this->model_mahasiswa->getMahasiswa();
+            $posts = $this->model_posts->getPosts(null, $limit, $offset);
         } else {
-            $mahasiswa = $this->model_mahasiswa->getMahasiswa($id);
+            $posts = $this->model_posts->getPosts($id, $limit, $offset);
         }
 
-        if ($mahasiswa) {
+        if ($posts) {
             $this->response([
                 'status' => TRUE,
-                'data' => $mahasiswa], REST_Controller::HTTP_OK
+                'data' => $posts], REST_Controller::HTTP_OK
             );
         } else {
             $this->response([
@@ -40,15 +48,66 @@ class Mahasiswa extends REST_Controller {
         }
     }
 
-    public function index_delete() {
-        $id = $this->delete('id');
+    public function index_post() {
+        $data = array(
+            'title' => $this->post('title'),
+            'content' => $this->post('content'),
+            'category' => $this->post('category'),
+            'status' => $this->post('status')
+        );
+
+        $this->replace_post($data);
+    }
+
+    public function index_put() {
+        $data = array(
+            'title' => $this->put('title'),
+            'content' => $this->put('content'),
+            'category' => $this->put('category'),
+            'status' => $this->put('status')
+        );
+
+        $this->replace_post($data);
+    }
+
+    public function index_patch() {
+        $data = array(
+            'title' => $this->patch('title'),
+            'content' => $this->patch('content'),
+            'category' => $this->patch('category'),
+            'status' => $this->patch('status')
+        );
+
+        $this->replace_post($data);
+    }
+
+    public function replace_post($data) {
+        if ($this->model_posts->replacePosts($data) > 0) {
+            // ok
+            $this->response([
+                'status' => TRUE,
+                'data' => $data,
+                'message' => 'inserted!'], REST_Controller::HTTP_OK
+            );
+        } else {
+            $this->response([
+                'status' => FALSE,
+                'message' => 'data format wrong!'], REST_Controller::HTTP_BAD_REQUEST
+            );
+        }
+    }
+
+    public function index_delete($id = null) {
+        if ($id === null) {
+            $id = $this->delete('id');
+        }
         if ($id === NULL) {
             $this->response([
                 'status' => FALSE,
                 'message' => 'provide an id!'], REST_Controller::HTTP_BAD_REQUEST
             );
         } else {
-            if ($this->model_mahasiswa->deleteMahasiswa($id) > 0) {
+            if ($this->model_posts->deletePosts($id) > 0) {
                 // ok
                 $this->response([
                     'status' => TRUE,
