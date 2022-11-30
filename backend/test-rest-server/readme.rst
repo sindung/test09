@@ -121,7 +121,7 @@ to update data, you can use "POST", "PUT" or "PATCH" method with **id** required
 .. code-block:: javascript
 
     var settings = {
-      "url": "http://localhost:8080/test09/backend/test-rest-server/api/article/8",
+      "url": "http://localhost:8080/test09/backend/test-rest-server/api/article/8", // id in URL parameter
       "method": "POST", // POST or PUT or PATCH
       "timeout": 0,
       "headers": {
