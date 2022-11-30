@@ -72,7 +72,7 @@ contributors to the CodeIgniter project and you, the CodeIgniter user.
 *********
 Show data
 *********
-to display data, you can use
+to display data, you can use "POST" method
 ..  code-block:: javascript
 
 var settings = {
