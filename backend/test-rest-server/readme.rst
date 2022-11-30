@@ -17,7 +17,8 @@ to display data, you can use "GET" method
 
 if success you will get response with code 200 OK
 
-.. code-block:: javascript
+..  code-block:: json
+
     {
         "status": true,
         "data": [
