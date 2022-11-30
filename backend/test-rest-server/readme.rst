@@ -139,7 +139,9 @@ to delete data, you can use "DELETE" method
 if succesed, you will get response 204 No Content
 
 
-
+*************
+About project
+*************
 
 ###################
 What is CodeIgniter
