@@ -73,17 +73,20 @@ contributors to the CodeIgniter project and you, the CodeIgniter user.
 Show data
 *********
 to display data, you can use "POST" method
-``
-var settings = {
-  "url": "<http://localhost:8080/test09/backend/test-rest-server/api/article/>",
-  "method": "GET",
-  "timeout": 0,
-};
 
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
-``
+
+..  code-block:: javascript
+
+    var settings = {
+      "url": "<http://localhost:8080/test09/backend/test-rest-server/api/article/>",
+      "method": "GET",
+      "timeout": 0,
+    };
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
+
 
 ***********
 Insert data
