@@ -15,6 +15,24 @@ to display data, you can use "GET" method
       console.log(response);
     });
 
+output
+
+.. code-block:: json
+    {
+        "status": true,
+        "data": [
+            {
+                "id": "1",
+                "title": "test",
+                "content": "test",
+                "category": "test",
+                "created_date": "2022-11-30 09:16:09",
+                "updated_date": "2022-11-30 09:15:28",
+                "status": "Publish"
+            }
+        ]
+    }
+
 
 ***********
 Insert data
