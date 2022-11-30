@@ -1,3 +1,11 @@
+********
+REST API
+********
+
+**I did this project for some test purposes**
+
+`Demo <https://hofarismail.site/test-rest-server/api/article>`_
+
 *********
 Show data
 *********
@@ -142,10 +150,6 @@ if succesed, you will get response 204 No Content
 *************
 About project
 *************
-**I did this project for some test purposes**
-
-`Demo <https://hofarismail.site/test-rest-server/api/article>`_
-
 
 ###################
 What is CodeIgniter
