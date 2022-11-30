@@ -3,7 +3,7 @@ Show data
 *********
 to display data, you can use "GET" method
 
-..  code-block:: javascript
+.. code-block:: javascript
 
     var settings = {
       "url": "http://localhost:8080/test09/backend/test-rest-server/api/article/",
@@ -15,9 +15,9 @@ to display data, you can use "GET" method
       console.log(response);
     });
 
-if success you will get response with code 200 OK
+if success, you will get response with code 200 OK
 
-..  code-block:: json
+.. code-block:: json
 
     {
         "status": true,
@@ -61,6 +61,22 @@ to insert data, you can use "POST" method
       console.log(response);
     });
 
+if succesed, you will get response 200 OK
+
+.. code-block:: javascript
+
+    {
+        "status": true,
+        "data": {
+            "title": "testC2",
+            "content": "testC",
+            "category": "testC2",
+            "status": "Draft",
+            "id": "8"
+        },
+        "message": "inserted!"
+    }
+
 ***********
 Update data
 ***********
@@ -87,6 +103,21 @@ to update data, you can use "POST", "PUT" or "PATCH" method with **id** required
       console.log(response);
     });
 
+if succesed, you will get response 200 OK
+
+.. code-block:: javascript
+
+    {
+        "status": true,
+        "data": {
+            "title": "testC2",
+            "content": "testC",
+            "category": "testC2",
+            "status": "Draft",
+            "id": "8"
+        },
+        "message": "updated!"
+    }
 
 ***********
 Delete data
@@ -104,6 +135,9 @@ to delete data, you can use "DELETE" method
     $.ajax(settings).done(function (response) {
       console.log(response);
     });
+
+if succesed, you will get response 204 No Content
+
 
 
 
