@@ -68,3 +68,38 @@ Acknowledgement
 
 The CodeIgniter team would like to thank EllisLab, all the
 contributors to the CodeIgniter project and you, the CodeIgniter user.
+
+*********
+Show data
+*********
+to display data, you can use
+..  code-block:: javascript
+
+var settings = {
+  "url": "http://localhost:8080/test09/backend/test-rest-server/api/article/",
+  "method": "GET",
+  "timeout": 0,
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+
+***********
+Insert data
+***********
+to insert data, you can use
+
+
+***********
+Update data
+***********
+to update data, you can use
+
+
+***********
+Delete data
+***********
+to delete data, you can use
+
