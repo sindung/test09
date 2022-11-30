@@ -4,7 +4,7 @@ REST API
 
 **I did this project for some test purposes**
 
-`Demo <https://hofarismail.site/test-rest-server/api/article>`_
+URL for test => `Demo <https://hofarismail.site/test-rest-server/api/article>`_
 
 *********
 Show data
