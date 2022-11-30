@@ -48,46 +48,72 @@ class Article extends REST_Controller {
         }
     }
 
-    public function index_post() {
+    public function index_post($id = null) {
         $data = array(
             'title' => $this->post('title'),
             'content' => $this->post('content'),
             'category' => $this->post('category'),
             'status' => $this->post('status')
         );
-
-        $this->replace_post($data);
+        if ($id !== null) {
+            $data['id'] = $id;
+            $this->update_post($data);
+        } else {
+            $this->insert_post($data);
+        }
     }
 
-    public function index_put() {
+    public function index_put($id = null) {
         $data = array(
             'title' => $this->put('title'),
             'content' => $this->put('content'),
             'category' => $this->put('category'),
             'status' => $this->put('status')
         );
+        if ($id !== null) {
+            $data['id'] = $id;
+        }
 
-        $this->replace_post($data);
+        $this->update_post($data);
     }
 
-    public function index_patch() {
+    public function index_patch($id = null) {
         $data = array(
             'title' => $this->patch('title'),
             'content' => $this->patch('content'),
             'category' => $this->patch('category'),
             'status' => $this->patch('status')
         );
+        if ($id !== null) {
+            $data['id'] = $id;
+        }
 
-        $this->replace_post($data);
+        $this->update_post($data);
     }
 
-    public function replace_post($data) {
+    public function insert_post($data) {
         if ($this->model_posts->replacePosts($data) > 0) {
             // ok
             $this->response([
                 'status' => TRUE,
                 'data' => $data,
                 'message' => 'inserted!'], REST_Controller::HTTP_OK
+            );
+        } else {
+            $this->response([
+                'status' => FALSE,
+                'message' => 'data format wrong!'], REST_Controller::HTTP_BAD_REQUEST
+            );
+        }
+    }
+
+    public function update_post($data) {
+        if ($this->model_posts->replacePosts($data) > 0) {
+            // ok
+            $this->response([
+                'status' => TRUE,
+                'data' => $data,
+                'message' => 'updated!'], REST_Controller::HTTP_OK
             );
         } else {
             $this->response([

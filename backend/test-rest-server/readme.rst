@@ -72,8 +72,7 @@ contributors to the CodeIgniter project and you, the CodeIgniter user.
 *********
 Show data
 *********
-to display data, you can use "POST" method
-
+to display data, you can use "GET" method
 
 ..  code-block:: javascript
 
@@ -91,17 +90,70 @@ to display data, you can use "POST" method
 ***********
 Insert data
 ***********
-to insert data, you can use
+to insert data, you can use "POST" method
 
+..  code-block:: javascript
+
+    var settings = {
+      "url": "http://localhost:8080/test09/backend/test-rest-server/api/article/",
+      "method": "POST",
+      "timeout": 0,
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "data": JSON.stringify({
+        "title": "testC",
+        "content": "testC",
+        "category": "testC",
+        "status": "Draft"
+      }),
+    };
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
 
 ***********
 Update data
 ***********
-to update data, you can use
+to update data, you can use "POST", "PUT" or "PATCH" method with id
+
+.. code-block:: javascript
+
+    var settings = {
+      "url": "http://localhost:8080/test09/backend/test-rest-server/api/article/8",
+      "method": "POST", // POST or PUT or PATCH
+      "timeout": 0,
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "data": JSON.stringify({
+        "title": "testC2",
+        "content": "testC",
+        "category": "testC2",
+        "status": "Draft"
+      }),
+    };
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
 
 
 ***********
 Delete data
 ***********
-to delete data, you can use
+to delete data, you can use "DELETE" method
+
+.. code-block:: javascript
+
+    var settings = {
+      "url": "http://localhost:8080/test09/backend/test-rest-server/api/article/5",
+      "method": "DELETE",
+      "timeout": 0,
+    };
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
 
