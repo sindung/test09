@@ -6,9 +6,9 @@
 
 <div class="card border-primary mb-3">
     <div class="card-body">
-        <button class="btn btn-outline-success" onclick="tambah_data()"><i class="fas fa-fw fa-plus-circle"></i> Tambah</button>
-        <button class="btn btn-outline-secondary" onclick="reload_table()"><i class="fas fa-fw fa-sync"></i> Segarkan</button>
-        <button class="btn btn-outline-danger" onclick="bulk_delete()"><i class="fas fa-fw fa-trash"></i> Hapus Semua</button>
+        <button class="btn btn-outline-success" id="tambah-data"><i class="fas fa-fw fa-plus-circle"></i> Tambah</button>
+        <button class="btn btn-outline-secondary" id="reload-data"><i class="fas fa-fw fa-sync"></i> Segarkan</button>
+        <button class="btn btn-outline-danger" id="bulk-delete"><i class="fas fa-fw fa-trash"></i> Hapus Semua</button>
 
         <hr/>
 
@@ -97,6 +97,16 @@
         //check all
         $("#check-all").click(function () {
             $(".data-check").prop('checked', $(this).prop('checked'));
+        });
+
+        $('#tambah-data').click(function () {
+            tambah_data()
+        });
+        $('#reload-data').click(function () {
+            reload_table()
+        });
+        $('#bulk-delete').click(function () {
+            bulk_delete()
         });
 
     });
