@@ -108,6 +108,8 @@ class Article extends REST_Controller {
     }
 
     public function update_post($data) {
+        $data['updated_date'] = date('Y-m-d H:i:s');
+
         if ($this->model_posts->replacePosts($data) > 0) {
             // ok
             $this->response([
