@@ -78,7 +78,7 @@
                             <a class="nav-link" href="<!?= site_url('Report') ?>">Page report</a>
                         </li>
                         -->
-                        
+
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('AllPosts') ?>">All Posts</a>
                         </li>

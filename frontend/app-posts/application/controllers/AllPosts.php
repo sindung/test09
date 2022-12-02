@@ -36,8 +36,9 @@ class AllPosts extends CI_Controller {
             //add html for action
             $row[] = '<a class="btn btn-sm btn-outline-info mr-1" href="javascript:void(0)" title="Edit" onclick="ubah_data(' . "'" . $posts->id . "'" . ')"><i class="fas fa-edit"></i></a>'
                     . '<a class="btn btn-sm btn-outline-danger mr-1" href="javascript:void(0)" title="Hapus" onclick="hapus_data(' . "'" . $posts->id . "'" . ')"><i class="fas fa-trash"></i></a>'
-                    . '<a class="btn btn-sm btn-outline-secondary mr-1" href="javascript:void(0)" title="Hapus" onclick="status_data(' . "'" . $posts->id . "'" . ', ' . "'Draft'" . ')">Draft</a>'
-                    . '<a class="btn btn-sm btn-outline-success" href="javascript:void(0)" title="Hapus" onclick="status_data(' . "'" . $posts->id . "'" . ', ' . "'Publish'" . ')">Publish</a>';
+                    . '<a class="btn btn-sm btn-outline-secondary mr-1" href="javascript:void(0)" title="Status" onclick="status_data(' . "'" . $posts->id . "'" . ', ' . "'Draft'" . ')">Draft</a>'
+                    . '<a class="btn btn-sm btn-outline-success mr-1" href="javascript:void(0)" title="Status" onclick="status_data(' . "'" . $posts->id . "'" . ', ' . "'Publish'" . ')">Publish</a>'
+                    . '<a class="btn btn-sm btn-outline-success" href="javascript:window.open(\'' . site_url('allposts/preview/') . $posts->id . '\', \'_frame\');" title="Preview">Preview</a>';
 
             $data[] = $row;
         }
@@ -149,6 +150,22 @@ class AllPosts extends CI_Controller {
             echo json_encode($data);
             exit();
         }
+    }
+
+    public function preview($id = null) {
+        $preview = "";
+
+        if ($id !== null) {
+            $preview = $this->model_Posts->get_by_id($id);
+        }
+
+        $data = array(
+            'app_title' => 'Preview',
+            'app_heading' => 'Preview',
+            'app_content' => $preview->content
+        );
+
+        $this->parser->parse('app_template', $data);
     }
 
 }

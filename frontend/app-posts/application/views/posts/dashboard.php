@@ -122,7 +122,8 @@
             {
                 $('[name="id"]').val(data.id);
                 $('[name="title"]').val(data.title);
-                $('[name="content"]').val(data.content);
+//                $('[name="content"]').val(data.content);
+                $('[name="content"]').html(data.content);
                 $('[name="category"]').val(data.category);
                 $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
                 $('.modal-title').text('Ubah Data'); // Set title to Bootstrap modal title
@@ -300,7 +301,10 @@
                         <div class="form-group">
                             <label class="control-label col-md-4" for="content">Content</label>
                             <div class="col-md">
+                                <!--
                                 <input id="content" name="content" placeholder="Content" class="form-control" type="text" maxlength="10" min="6">
+                                -->
+                                <textarea id="content" name="content" rows="5" cols="10" class="form-control"></textarea>
                                 <span class="help-block"></span>
                             </div>
                         </div>
