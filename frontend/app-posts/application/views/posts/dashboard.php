@@ -118,6 +118,7 @@
     {
         save_method = 'add';
         $('#form')[0].reset(); // reset form on modals
+        $('textarea').html('');
         $('.form-group').removeClass('has-error'); // clear error class
         $('.help-block').empty(); // clear error string
         $('#modal_form').modal('show'); // show bootstrap modal
