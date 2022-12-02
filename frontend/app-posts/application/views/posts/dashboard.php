@@ -353,7 +353,7 @@
                                 <!--
                                 <input id="content" name="content" placeholder="Content" class="form-control" type="text" maxlength="10" min="6">
                                 -->
-                                <textarea id="content" name="content" rows="5" cols="10" class="form-control"></textarea>
+                                <textarea id="content" name="content" rows="5" cols="10" class="form-control" placeholder="Content"></textarea>
                                 <span class="help-block"></span>
                             </div>
                         </div>
