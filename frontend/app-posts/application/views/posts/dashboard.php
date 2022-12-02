@@ -108,6 +108,9 @@
         $('#bulk-delete').click(function () {
             bulk_delete()
         });
+        $('#btnSave').click(function () {
+            save();
+        });
 
     });
 
@@ -380,7 +383,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary"><i class="fas fa-fw fa-save"></i> Simpan</button>
+                <button type="button" id="btnSave" class="btn btn-primary"><i class="fas fa-fw fa-save"></i> Simpan</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-fw fa-minus-circle"></i> Batal</button>
             </div>
         </div><!-- /.modal-content -->
