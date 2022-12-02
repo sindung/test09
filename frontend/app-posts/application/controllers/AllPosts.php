@@ -34,11 +34,11 @@ class AllPosts extends CI_Controller {
             $row[] = $posts->status;
 
             //add html for action
-            $row[] = '<a class="btn btn-sm btn-outline-info mr-1" href="javascript:void(0)" title="Edit" onclick="ubah_data(' . "'" . $posts->id . "'" . ')"><i class="fas fa-edit"></i></a>'
-                    . '<a class="btn btn-sm btn-outline-danger mr-1" href="javascript:void(0)" title="Hapus" onclick="hapus_data(' . "'" . $posts->id . "'" . ')"><i class="fas fa-trash"></i></a>'
-                    . '<a class="btn btn-sm btn-outline-secondary mr-1" href="javascript:void(0)" title="Status" onclick="status_data(' . "'" . $posts->id . "'" . ', ' . "'Draft'" . ')">Draft</a>'
-                    . '<a class="btn btn-sm btn-outline-success mr-1" href="javascript:void(0)" title="Status" onclick="status_data(' . "'" . $posts->id . "'" . ', ' . "'Publish'" . ')">Publish</a>'
-                    . '<a class="btn btn-sm btn-outline-success" href="javascript:window.open(\'' . site_url('allposts/preview/') . $posts->id . '\', \'_frame\');" title="Preview">Preview</a>';
+            $row[] = '<a class="btn btn-sm btn-outline-info mr-1 ubah-data" data-id="' . $posts->id . '" href="javascript:void(0)" title="Edit"><i class="fas fa-edit"></i></a>'
+                    . '<a class="btn btn-sm btn-outline-danger mr-1 hapus-data" data-id="' . $posts->id . '" href="javascript:void(0)" title="Hapus"><i class="fas fa-trash"></i></a>'
+                    . '<a class="btn btn-sm btn-outline-secondary mr-1 status-data" data-id="' . $posts->id . '" data-status="Draft" href="javascript:void(0)" title="Status">Draft</a>'
+                    . '<a class="btn btn-sm btn-outline-success mr-1 status-data" data-id="' . $posts->id . '" data-status="Publish" href="javascript:void(0)" title="Status">Publish</a>'
+                    . '<a class="btn btn-sm btn-outline-success preview" data-id="' . $posts->id . '" data-preview="' . site_url('AllPosts/preview/') . '" href="javascript:void(0)" title="Preview">Preview</a>';
 
             $data[] = $row;
         }

@@ -73,6 +73,11 @@
                     "orderable": false, //set not orderable
                 },
             ],
+            "initComplete": function (settings, json) {
+            },
+            "drawCallback": function (settings) {
+                fnAction();
+            }
         });
 
         //set input/textarea/select event when change value, remove class error and remove text help block
@@ -168,6 +173,7 @@
     function reload_table()
     {
         table.ajax.reload(null, false); //reload datatable ajax
+        fnAction();
     }
 
     function save()
@@ -275,6 +281,35 @@
         {
             alert('no data selected');
         }
+    }
+
+    function fnAction() {
+        $('.ubah-data').click(function (event) {
+            let data = $(this).data();
+            let id = data.id;
+
+            ubah_data(id);
+        });
+        $('.hapus-data').click(function (event) {
+            let data = $(this).data();
+            let id = data.id;
+
+            hapus_data(id);
+        });
+        $('.status-data').click(function (event) {
+            let data = $(this).data();
+            let id = data.id;
+            let status = data.status;
+
+            status_data(id, status);
+        });
+        $('.preview').click(function (event) {
+            let data = $(this).data();
+            let id = data.id;
+            let preview = data.preview;
+
+            window.open(preview + id, '_frame');
+        });
     }
 
 </script>
